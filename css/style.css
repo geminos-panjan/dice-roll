@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --header-heignt: 52px;
+  --footer-height: 52px;
+  --theme-color: darkcyan;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", "Noto Sans JP", sans-serif;
+  background-color: hsl(0, 0%, 95%);
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a:link,
+a:visited {
+  color: navy;
+}
+
+a:hover {
+  color: purple;
+}
+
+a:active {
+  color: red;
+}
+
+.header {
+  background-color: var(--theme-color);
+  color: white;
+  height: var(--header-heignt);
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  max-width: calc(800px - 32px * 2);
+  width: 100%;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: x-large;
+  padding: 0 32px;
+}
+
+.main {
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  min-height: calc(100% - var(--header-heignt) - var(--footer-height));
+  box-sizing: border-box;
+}
+
+.footer {
+  text-align: center;
+  background: hsl(0, 0%, 85%);
+  height: var(--footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin: 16px 0;
+}
+
+.input input {
+  width: 52px;
+  text-align: right;
+}
+
+.action {
+  margin: 16px 0;
+}
+
+.action button {
+  user-select: none;
+  min-width: 80px;
+  appearance: none;
+  border: 3px solid var(--theme-color);
+  background-color: inherit;
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.action button:hover {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.action button:active {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.roll-list {
+  border: solid hsl(0, 0%, 60%);
+  border-width: 0 0 1px 0;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  border: solid hsl(0, 0%, 60%);
+  border-width: 1px 0 0 0;
+  min-height: 2.5em;
+  padding: 0 16px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.index {
+  text-align: center;
+  border: 2px solid var(--theme-color);
+  border-radius: 8px;
+  min-width: 3ch;
+  padding: 2px 0;
+}
+
+.value {
+  min-width: 4ch;
+  text-align: right;
+}
