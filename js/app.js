@@ -1,5 +1,6 @@
 const defaultDice = 10;
 const defaultMax = 6;
+const timeout = 50;
 
 const getDiceElement = () => {
   return document.querySelector(".input-dice");
@@ -16,13 +17,16 @@ const getResultElement = () => {
 const reset = () => {
   getDiceElement().value = defaultDice;
   getMaxElement().value = defaultMax;
-  const resultList = getResultElement();
-  removeChildAll(resultList);
+  removeChildAll();
 }
 
-const removeChildAll = (element) => {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+const removeChildAll = () => {
+  const resultList = getResultElement();
+  for (const child of resultList.childNodes) {
+    child.classList.remove("show-row");
+    setTimeout(() => {
+      resultList.removeChild(child);
+    }, timeout);
   }
 }
 
@@ -31,20 +35,25 @@ const rollDice = () => {
   const max = getMaxElement().value;
   const resultList = getResultElement();
 
-  removeChildAll(resultList);
+  removeChildAll();
 
   for (let i = 1; i <= dice; i++) {
-    const result = Math.floor(Math.random() * max) + 1;
-    const row = document.createElement("div");
-    row.className = "row";
-    const index = document.createElement("div");
-    index.className = "index";
-    index.textContent = i;
-    const value = document.createElement("div");
-    value.className = "value";
-    value.textContent = result;
-    row.append(index, value);
-    resultList.appendChild(row);
+    setTimeout(() => {
+      const result = Math.floor(Math.random() * max) + 1;
+      const row = document.createElement("div");
+      row.className = "row";
+      setTimeout(() => {
+        row.classList.add("show-row");
+      }, timeout);
+      const index = document.createElement("div");
+      index.className = "index";
+      index.textContent = i;
+      const value = document.createElement("div");
+      value.className = "value";
+      value.textContent = result;
+      row.append(index, value);
+      resultList.appendChild(row);
+    }, timeout * (i - 1));
   }
 };
 
