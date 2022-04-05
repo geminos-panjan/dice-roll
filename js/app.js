@@ -1,4 +1,4 @@
-const defaultDice = 10;
+const defaultDice = 1;
 const defaultMax = 6;
 const timeout = 50;
 
